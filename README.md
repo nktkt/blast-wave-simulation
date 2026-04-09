@@ -61,21 +61,11 @@ Space-time diagram of the pressure field. White dashed line shows the Sedov-Tayl
 
 Shock wave propagation through an urban environment (50 frames, t = 10–500 ms). The wave diffracts around buildings, creating shadow zones and reflected pressure peaks.
 
-### 3D OpenFOAM CFD — Pressure Slice (ParaView)
-
-![ParaView OpenFOAM](results/paraview_openfoam_slice.png)
-
-Full 3D compressible flow simulation (OpenFOAM `shockFluid` solver) with 4 buildings in a 200m × 200m × 80m domain. Horizontal slice at z = 5m showing the pressure field. Key observations:
+Full 3D compressible flow simulation (OpenFOAM `shockFluid` solver) with 4 buildings in a 200m × 200m × 80m domain. Horizontal pressure slice at z = 5m. Key observations:
 - Shock wave **diffracts** around buildings, creating complex pressure patterns
 - **Shadow zones** (low pressure) form behind structures
 - **Reflection** off building walls amplifies local overpressure
 - This asymmetry is **impossible to capture with 1D simulations**
-
-### ParaView — 1D→3D Spherical Blast (VTK)
-
-![Pressure r-t](results/blast_pressure_rt.png)
-
-Spherically symmetric pressure field exported as 3D VTK rectilinear grid (80×80×40 cells). Time series viewable in ParaView with color mapping, slices, contours, and volume rendering.
 
 ### Blender 3D Visualization
 
