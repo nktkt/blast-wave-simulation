@@ -55,6 +55,22 @@ Comparison of numerically detected shock position (red dots) against the Sedov-T
 
 Space-time diagram of the pressure field. White dashed line shows the Sedov-Taylor shock trajectory.
 
+### 3D OpenFOAM CFD — Blast Wave with Buildings (ParaView)
+
+![ParaView OpenFOAM](results/paraview_openfoam_slice.png)
+
+Full 3D compressible flow simulation (OpenFOAM `shockFluid` solver) with 4 buildings in a 200m × 200m × 80m domain. Horizontal slice at z = 5m showing the pressure field. Key observations:
+- Shock wave **diffracts** around buildings, creating complex pressure patterns
+- **Shadow zones** (low pressure) form behind structures
+- **Reflection** off building walls amplifies local overpressure
+- This asymmetry is **impossible to capture with 1D simulations**
+
+### ParaView — 1D→3D Spherical Blast (VTK)
+
+![Pressure r-t](results/blast_pressure_rt.png)
+
+Spherically symmetric pressure field exported as 3D VTK rectilinear grid (80×80×40 cells). Time series viewable in ParaView with color mapping, slices, contours, and volume rendering.
+
 ### Blender 3D Visualization
 
 ![Blender Frame](results/blast_frame_030.png)
