@@ -1,0 +1,36 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+
+application     foamRun;
+solver          shockFluid;
+
+startFrom       startTime;
+startTime       0;
+stopAt          endTime;
+endTime         0.05;      // 50 ms (ARM emulation用に短縮)
+
+deltaT          1e-6;      // 初期時間刻み
+
+writeControl    adjustableRunTime;
+writeInterval   0.01;      // 10 ms ごとに出力
+
+purgeWrite      0;
+writeFormat     binary;
+writePrecision  8;
+writeCompression off;
+
+timeFormat      general;
+timePrecision   6;
+
+adjustTimeStep  yes;
+maxCo           0.5;
+maxDeltaT       1e-3;
+
+functions
+{
+}

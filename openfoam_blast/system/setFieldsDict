@@ -1,0 +1,35 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+
+// 爆発源: 原点に半径5mの高圧高温球を設定
+// 1トン TNT 相当: E = 4.184e9 J
+// V_sphere = (4/3)π(5)^3 = 523.6 m^3
+// p = E*(γ-1)/V = 4.184e9 * 0.4 / 523.6 = 3.2e6 Pa
+// T = p/(ρ*R_gas) ≈ 9100 K
+
+defaultFieldValues
+(
+    volScalarFieldValue p   101325
+    volScalarFieldValue T   300
+    volVectorFieldValue U   (0 0 0)
+);
+
+regions
+(
+    // 爆発源 (高圧球)
+    sphereToCell
+    {
+        centre  (0 0 5);    // 地面から5m上
+        radius  5;
+        fieldValues
+        (
+            volScalarFieldValue p   3200000    // 3.2 MPa (~32 atm)
+            volScalarFieldValue T   9100       // 9100 K
+        );
+    }
+);

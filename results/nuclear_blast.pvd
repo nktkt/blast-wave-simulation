@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<VTKFile type="Collection" version="0.1">
+  <Collection>
+    <DataSet timestep="1.000000e-03" file="vtk_nuclear/nuclear_0000.vtr"/>
+    <DataSet timestep="5.000000e-03" file="vtk_nuclear/nuclear_0001.vtr"/>
+    <DataSet timestep="1.000000e-02" file="vtk_nuclear/nuclear_0002.vtr"/>
+    <DataSet timestep="5.000000e-02" file="vtk_nuclear/nuclear_0003.vtr"/>
+    <DataSet timestep="1.000000e-01" file="vtk_nuclear/nuclear_0004.vtr"/>
+    <DataSet timestep="5.000000e-01" file="vtk_nuclear/nuclear_0005.vtr"/>
+    <DataSet timestep="1.000000e+00" file="vtk_nuclear/nuclear_0006.vtr"/>
+    <DataSet timestep="2.000000e+00" file="vtk_nuclear/nuclear_0007.vtr"/>
+    <DataSet timestep="5.000000e+00" file="vtk_nuclear/nuclear_0008.vtr"/>
+  </Collection>
+</VTKFile>

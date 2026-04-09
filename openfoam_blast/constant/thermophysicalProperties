@@ -1,0 +1,36 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      thermophysicalProperties;
+}
+
+thermoType
+{
+    type            hePsiThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+mixture
+{
+    specie
+    {
+        molWeight   28.96;    // 空気の分子量
+    }
+    thermodynamics
+    {
+        Cp          1005;     // 定圧比熱 [J/(kg·K)]
+        Hf          0;
+    }
+    transport
+    {
+        mu          1.84e-05; // 動粘性係数 [Pa·s]
+        Pr          0.71;     // プラントル数
+    }
+}

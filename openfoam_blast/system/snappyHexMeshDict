@@ -1,0 +1,126 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+
+// 建物をメッシュに埋め込む (snappyHexMesh)
+
+castellatedMesh true;
+snap            false;
+addLayers       false;
+
+geometry
+{
+    // ビル1: 30m x 20m x 40m (爆心から40m)
+    building1
+    {
+        type searchableBox;
+        min (30 -10 0);
+        max (60  10 40);
+    }
+
+    // ビル2: 20m x 30m x 25m
+    building2
+    {
+        type searchableBox;
+        min (-20 30 0);
+        max (  0 60 25);
+    }
+
+    // ビル3: 25m x 25m x 50m (高層)
+    building3
+    {
+        type searchableBox;
+        min (20 -60 0);
+        max (45 -35 50);
+    }
+
+    // ビル4: 小さな建物
+    building4
+    {
+        type searchableBox;
+        min (-50 -30 0);
+        max (-30 -10 15);
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells       200000;
+    maxGlobalCells      500000;
+    minRefinementCells  10;
+    maxLoadUnbalance    0.10;
+    nCellsBetweenLevels 3;
+
+    features ();
+
+    refinementSurfaces
+    {
+        building1 { level (1 1); }
+        building2 { level (1 1); }
+        building3 { level (1 1); }
+        building4 { level (1 1); }
+    }
+
+    resolveFeatureAngle 30;
+
+    refinementRegions
+    {
+        // 爆心付近を細かく
+    }
+
+    locationInMesh (0 0 10);  // メッシュ内部の点 (建物の外)
+    allowFreeStandingZoneFaces true;
+}
+
+snapControls
+{
+    nSmoothPatch    3;
+    tolerance       2.0;
+    nSolveIter      30;
+    nRelaxIter      5;
+}
+
+addLayersControls
+{
+    relativeSizes   true;
+    layers          {}
+    expansionRatio  1.0;
+    finalLayerThickness 0.3;
+    minThickness    0.1;
+    nGrow           0;
+    featureAngle    60;
+    nRelaxIter      3;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals  3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedialAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter      50;
+}
+
+meshQualityControls
+{
+    maxNonOrtho     65;
+    maxBoundarySkewness 20;
+    maxInternalSkewness 4;
+    maxConcave      80;
+    minVol          1e-13;
+    minTetQuality   -1e30;
+    minArea         -1;
+    minTwist        0.02;
+    minDeterminant  0.001;
+    minFaceWeight   0.02;
+    minVolRatio     0.01;
+    minTriangleTwist -1;
+    nSmoothScale    4;
+    errorReduction  0.75;
+}
+
+writeFlags      ();
+mergeTolerance  1e-6;

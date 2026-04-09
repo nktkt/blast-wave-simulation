@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.blend1
+results/blast_blender.npz
+results/vtk/
+results/vtk_nuclear/
+results/blast_wave.blend
+results/blast_wave_v2.blend
+results/blast_wave_v2.blend1
+results/blast_preview.png
+results/blast_overpressure_analysis.png
+results/blast_wave_profiles.png
+openfoam_blast/0.*/
+openfoam_blast/constant/polyMesh/
+openfoam_blast/processor*/
+.claude/
