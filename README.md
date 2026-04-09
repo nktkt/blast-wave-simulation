@@ -55,7 +55,13 @@ Comparison of numerically detected shock position (red dots) against the Sedov-T
 
 Space-time diagram of the pressure field. White dashed line shows the Sedov-Taylor shock trajectory.
 
-### 3D OpenFOAM CFD — Blast Wave with Buildings (ParaView)
+### 3D OpenFOAM CFD — Blast Wave with Buildings (Animated)
+
+![Blast Wave Animation](results/blast_openfoam.gif)
+
+Shock wave propagation through an urban environment (50 frames, t = 10–500 ms). The wave diffracts around buildings, creating shadow zones and reflected pressure peaks.
+
+### 3D OpenFOAM CFD — Pressure Slice (ParaView)
 
 ![ParaView OpenFOAM](results/paraview_openfoam_slice.png)
 
